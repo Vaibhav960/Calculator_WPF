@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Calculator" Height="600" Width="700">
     <DockPanel Background="WhiteSmoke">
-        <!-- History Sidebar (on the right side) -->
+        <!-- History Sidebar  -->
         <Border DockPanel.Dock="Right" Width="350" Background="#34495E" Padding="20">
             <StackPanel>
                 <!-- Header Section -->
@@ -47,7 +47,7 @@
                 <ItemsControl ItemsSource="{Binding History.Calculations}" Margin="0,40,0,0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <!-- Each calculation is displayed as a TextBlock, with margin for spacing -->
+                            <!-- Each calculation is displayed as a TextBlock -->
                             <Border Background="#2C3E50" CornerRadius="5" Margin="5">
                                 <TextBlock Text="{Binding}" 
                            FontSize="14" 
@@ -68,7 +68,7 @@
         <Grid Margin="10">
             <!-- Display Area -->
             <StackPanel Margin="10">
-                <!-- Expression Display (Shows the equation in a smaller font) -->
+                <!-- Expression Display -->
             <TextBox Name="ExpressionDisplay" 
              Text="{Binding ExpressionDisplayText}" 
              FontSize="18" 
@@ -82,7 +82,7 @@
              Foreground="#818589"
              BorderThickness="0" />
 
-            <!-- Result Display (Main result display in bold) -->
+            <!-- Result Display-->
             <TextBox Name="Display" 
              Text="{Binding DisplayText}" 
              FontSize="32" 
@@ -136,11 +136,11 @@
                                     <!-- Visual States for Button Interaction -->
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <!-- Adjust opacity on hover (brightness effect) -->
+                                        
                                             <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.68"/>
                                         </Trigger>
                                         <Trigger Property="IsMouseOver" Value="False">
-                                            <!-- Reset opacity when mouse is not over the button -->
+                                     
                                             <Setter TargetName="ButtonBorder" Property="Opacity" Value="1"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
@@ -180,7 +180,7 @@
         FontWeight="Bold" HorizontalAlignment="Stretch"/>
 
                 <!-- Row 5 -->
-                <!-- Calculate Button (Adjusting column span) -->
+                <!-- Calculate Button-->
                 <Button Content="=" Command="{Binding CalculateCommand}" 
         Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" 
         FontSize="24" Background="#2ECC71" Height="70"/>

@@ -20,7 +20,7 @@ namespace Calculator.ViewModels
         // Method to add calculation to history
         public void AddToHistory(string calculation)
         {
-            Calculations.Insert(0, calculation); // Adds the calculation at the top of the list
+            Calculations.Insert(0, calculation); 
         }
 
         // Method to clear the history

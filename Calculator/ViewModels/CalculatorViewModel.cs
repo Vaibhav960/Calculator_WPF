@@ -13,7 +13,7 @@ namespace Calculator.ViewModels
         private string _operation;
         private bool _isNewEntry = true;
         private string _displayText = "0";
-        private string _expressionDisplayText = ""; // Holds the expression, e.g., "6 + 3 ="
+        private string _expressionDisplayText = ""; // Holds the expression
         public HistoryViewModel History { get; set; }
         public ICommand DeleteHistoryCommand { get; }
         public ICommand BackspaceCommand { get; }
@@ -80,7 +80,7 @@ namespace Calculator.ViewModels
 
         private void ExecuteOperationCommand(object parameter)
         {
-            // If an operation is already in progress and we haven't entered a new number, execute the current operation first
+            
             if (!string.IsNullOrEmpty(_operation) && !_isNewEntry)
             {
                 ExecuteCalculateCommand(null);  // Execute the current operation first
@@ -102,7 +102,7 @@ namespace Calculator.ViewModels
             }
 
             // Set the new operation
-            _operation = parameter.ToString();  // Update the operation with the new one
+            _operation = parameter.ToString();  
 
             // Update the expression display text
             ExpressionDisplayText = $"{_firstOperand} {symbol} ";
@@ -166,7 +166,7 @@ namespace Calculator.ViewModels
                     break;
             }
 
-            // Update the expression display text (append to the expression if '=' was pressed before)
+            // Update the expression display text
             if (!string.IsNullOrEmpty(ExpressionDisplayText))
             {
                 ExpressionDisplayText += secondOperand + "=";
@@ -186,10 +186,10 @@ namespace Calculator.ViewModels
             // Set the result as the first operand for the next operation
             _firstOperand = result;
 
-            // Set the operation to null as it's now a result, awaiting the next operand or operator
+           
             _operation = null;
 
-            // Make sure the next number input resets the entry state
+         
             _isNewEntry = true;
 
             // Notify property changes
@@ -198,7 +198,7 @@ namespace Calculator.ViewModels
         }
         private void ExecuteBackspace(object parameter)
         {
-            // Only allow backspace if it's not a result (i.e., you're entering a new expression)
+            // Only allow backspace if it's not a result 
             if (!_isNewEntry && !string.IsNullOrEmpty(DisplayText))
             {
                 // Remove the last character from the display text
